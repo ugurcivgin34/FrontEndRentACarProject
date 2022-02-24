@@ -1,23 +1,31 @@
-<table class="table table-striped table-hover">
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
   <thead>
     <tr>
 
-      <th>Araba Adı</th>
-      <th>Marka Adı</th>
-      <th>Renk Adı</th>
-      <th>Fiyatı</th>
+      <th>Color Id</th>
+      <th>BrandId</th>
       <th>Model Yılı</th>
+      <th>Fiyatı</th>
+      <th>Açıklama</th>
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let car of cars">
 
-      <td>{{car.carName}}</td>
-      <td>{{car.brandname}}</td>
-      <td>{{car.colorName}}</td>
-      <td>{{car.dailyPrice}}</td>
+
+      <td>{{car.colorId}}</td>
+      <td>{{car.brandId}}</td>
       <td>{{car.modelYear}}</td>
+      <td>{{car.dailyPrice}}</td>
+      <td>{{car.description}}</td>
+      <td (click)="setCurrentCar(car)"
+      routerLink="/cars/cardetails/{{car.id}}"
+      class="btn btn-outline-secondary" type="detay">İncele</td>
+
 
     </tr>
   </tbody>
