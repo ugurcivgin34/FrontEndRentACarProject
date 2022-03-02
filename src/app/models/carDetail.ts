@@ -1,9 +1,11 @@
+import { CarImage } from "./carImage";
+
 export interface CarDetail {
-  carId:number;
+  id:number;
   carName:string;
-  brandname:string;
+  brandName:string;
   colorName:string;
   dailyPrice:number;
   modelYear:number;
-  imagePath:string;
+  imagePath:string[];
 }

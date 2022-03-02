@@ -1,1 +1,66 @@
-<p>car-detail works!</p>
+<!-- <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<div *ngFor="let currentCar of currentCars">
+  <img [src]="getCarImage(currentCar.carImages[0].imagePath)"
+  height="200" alt="..." style="object-fit: cover;">
+  <div class="card-body d-flex flex-column align-items-center">
+    <h5 class="card-title text">Araç Detay</h5>
+  </div>
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item">{{currentCar.brandName}} </li>
+    <li class="list-group-item">{{currentCar.carName}}</li>
+    <li class="list-group-item">{{currentCar.colorName}}</li>
+    <li class="list-group-item">{{currentCar.modelYear}}</li>
+    <li class="list-group-item">{{currentCar.dailyPrice}} TL</li>
+  </ul>
+</div>
+</div>
+</div> -->
+
+
+<div  class="card" style="width:100%;margin-top: 20px;">
+
+  <div class="row"style="max-height: 80%;">
+
+  </div>
+    <carousel  style="height:95%; width: 50%;" >
+      <slide *ngFor="let imagePath of carImagePaths; let index=index" >
+        <img [src]="imageUrl+imagePath" alt="image slide" class="image-fluid" style=" height:400px;width: 100%; object-fit: cover">
+
+        <div class="carousel-caption">
+          <h4>Görsel: {{index+1}} </h4>
+          <p></p>
+        </div>
+      </slide>
+    </carousel>
+
+
+
+      <!-- car detail sayfası araç detay bilgileiri -->
+      <div *ngFor="let carDetail of carDetails" class="card-body">
+        <div class="card-body detailsFontInfo">
+
+            <h5 class="card-title">
+            {{ carDetail?.brandName }}
+            </h5>
+
+        </div>
+
+        <ul class="list-group list-group-flush  detailsFontInfo">
+            <li class="list-group-item"><b>Renk :</b> {{ carDetail?.colorName }}</li>
+
+            <li class="list-group-item  detailsFontInfo"> <b>Model Yılı :</b> {{ carDetail?.modelYear }}</li>
+
+            <li class="list-group-item  detailsFontInfo"> <b>Günlük Fiyat :</b> {{ carDetail?.dailyPrice}}</li>
+
+            <li class="list-group-item  detailsFontInfo"><b>Açıklama:</b> {{ carDetail?.carName }}</li>
+
+
+            <!-- <b>Status : </b> {{ carDetail?.isRentable ? "Available" : "Not Available" }} -->
+
+        </ul>
+    </div>
+
+
+
